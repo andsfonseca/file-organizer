@@ -1,0 +1,23 @@
+{
+  "name": "file-organizer",
+  "version": "1.0.0",
+  "description": "A simple file organizer by extension and groups.",
+  "main": "src/index.js",
+  "bin": {
+    "@andsfonseca/file-organizer": "bin/file-organizer",
+    "file-organizer": "bin/file-organizer"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "organizer",
+    "files",
+    "extension"
+  ],
+  "author": "@andsfonseca",
+  "license": "ISC"
+}
