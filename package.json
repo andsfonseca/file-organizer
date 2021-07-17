@@ -16,9 +16,12 @@
     "extension"
   ],
   "author": {
-    "name" : "Anderson Silva",
-    "email" : "andsfonseca@tecgraf.puc-rio.br",
-    "url" : "http://andsfonseca.github.io/"
+    "name": "Anderson Silva",
+    "email": "andsfonseca@tecgraf.puc-rio.br",
+    "url": "http://andsfonseca.github.io/"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^8.0.0"
+  }
 }
