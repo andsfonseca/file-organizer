@@ -9,15 +9,39 @@
         ".vb",
         ".cmd",
         ".ps1",
-        ".vbs"
+        ".vbs",
+        ".bat",
+        ".jar"
     ],
     "Compressed": [
         ".zip",
         ".rar",
-        ".gz"
+        ".gz",
+        ".iso",
+        ".tar",
+        ".tgz",
+        ".bz2",
+        ".tbz",
+        ".dmg"
     ],
     "Music": [
-        ".mp3"
+        ".mp3",
+        ".aac",
+        ".ogg",
+        ".oga",
+        ".wma",
+        ".mp2",
+        ".ra",
+        ".rm",
+        ".smil",
+        ".ram",
+        ".rv",
+        ".ac3",
+        ".wav",
+        ".aiff",
+        ".flac",
+        ".alac",
+        ".pcm"
     ],
     "Images": [
         ".jpg",
@@ -50,6 +74,39 @@
         ".heif",
         ".heic",
         ".bmp",
-        ".dib"
+        ".dib",
+        ".avif",
+        ".exif",
+        ".crw",
+        ".nef",
+        ".pbm",
+        ".pgm",
+        ".ppm",
+        ".pnm",
+        ".pam"
+    ],
+    "Documents": [
+        ".doc",
+        ".docx",
+        ".odt",
+        ".ott",
+        ".sxw",
+        ".stw",
+        ".rtf",
+        ".sdw",
+        ".txt",
+        ".text",
+        ".csv",
+        ".tsv",
+        ".xls",
+        ".xlsx",
+        ".ods",
+        ".ots",
+        ".ppt",
+        ".pptx",
+        ".odp",
+        ".otp",
+        ".pdf",
+        ".md"
     ]
 }
