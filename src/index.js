@@ -82,12 +82,12 @@ const organizeFolder = (path, template) => {
 
     //Recupera a Lista de Arquivos
     readFolder(path, (files) => {
-
-        if (files.length == 1) {
+        let size = files.length
+        if (size == 1) {
             loader.text = "1 file found.";
         }
         else {
-            loader.text = files.length + " files found.";
+            loader.text = size + " files found.";
         }
 
         loader.succeed();
@@ -118,18 +118,26 @@ const organizeFolder = (path, template) => {
         loader.succeed();
 
         console.log(chalk.blue("# Moving files"));
+
+        const localLoader = ora("Moving...").start();
+
+        let count = 0;
+
         //Para cada arquivo
         files.forEach(file => {
-
-            const localLoader = ora(file).start();
 
             //Recupera a extensão
             let extension = getExtension(file)
 
             //Ignora o arquivo
             if (!dictExtensionFolder[extension] || dictExtensionFolder[extension] == "Ignore") {
+                count += 1;
                 localLoader.text = "File '" + file + "' ignored."
                 localLoader.succeed()
+                if (count != size) {
+                    localLoader.text
+                    localLoader.start()
+                }
                 return;
             };
 
@@ -138,13 +146,20 @@ const organizeFolder = (path, template) => {
 
             //Move o Arquivo
             moveFile(path, path + "/" + dictExtensionFolder[extension], file, (error) => {
+                count += 1;
                 if (error) {
                     localLoader.text = "Unable to move file '" + file + "', access denied!"
                     localLoader.fail()
+                    
                 }
                 else {
                     localLoader.text = "File '" + file + "' moved successfully."
                     localLoader.succeed()
+                }
+                
+                if (count != size) {
+                    localLoader.text
+                    localLoader.start()
                 }
             })
 
