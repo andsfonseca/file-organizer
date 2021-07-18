@@ -15,7 +15,8 @@
         ".vsix",
         ".apk",
         ".sh",
-        ".bash"
+        ".bash",
+        ".whl"
     ],
     "Compressed": [
         ".zip",
@@ -160,7 +161,11 @@
         ".scss",
         ".html",
         ".htm",
-        ".xhtml"
+        ".xhtml",
+        ".ipynb",
+        ".vert",
+        ".frag"
+        
     ],
     "Contacts": [
         ".vcf",
