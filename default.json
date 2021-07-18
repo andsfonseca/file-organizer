@@ -1,0 +1,55 @@
+{
+    "Ignore": [
+        ".gitignore"
+    ],
+    "Executables": [
+        ".exe",
+        ".msi",
+        ".reg",
+        ".vb",
+        ".cmd",
+        ".ps1",
+        ".vbs"
+    ],
+    "Compressed": [
+        ".zip",
+        ".rar",
+        ".gz"
+    ],
+    "Music": [
+        ".mp3"
+    ],
+    "Images": [
+        ".jpg",
+        ".jpeg",
+        ".jpe",
+        ".jif",
+        ".jfif",
+        ".jfi",
+        ".png",
+        ".gif",
+        ".webp",
+        ".tiff",
+        ".tif",
+        ".raw",
+        ".arw",
+        ".cr2",
+        ".nrw",
+        ".k25",
+        ".svg",
+        ".svgz",
+        ".jp2",
+        ".j2k",
+        ".jpf",
+        ".jpx",
+        ".jpm",
+        ".mj2",
+        ".ind",
+        ".indd",
+        ".indt",
+        ".heif",
+        ".heic",
+        ".bmp",
+        ".dib"
+    ]
+}
