@@ -11,7 +11,11 @@
         ".ps1",
         ".vbs",
         ".bat",
-        ".jar"
+        ".jar",
+        ".vsix",
+        ".apk",
+        ".sh",
+        ".bash"
     ],
     "Compressed": [
         ".zip",
@@ -22,7 +26,9 @@
         ".tgz",
         ".bz2",
         ".tbz",
-        ".dmg"
+        ".dmg",
+        ".7z",
+        ".unitypackage"
     ],
     "Music": [
         ".mp3",
@@ -83,7 +89,8 @@
         ".pgm",
         ".ppm",
         ".pnm",
-        ".pam"
+        ".pam",
+        ".ai"
     ],
     "Documents": [
         ".doc",
@@ -108,5 +115,60 @@
         ".otp",
         ".pdf",
         ".md"
+    ],
+    "Videos": [
+        ".avi",
+        ".flv",
+        ".mov",
+        ".mp4",
+        ".mpg",
+        ".mpeg",
+        ".wmv",
+        ".wma",
+        ".mkv",
+        ".vob",
+        ".ogv",
+        ".3gp",
+        ".3g2",
+        ".m4v",
+        ".m2v",
+        ".ogm",
+        ".asf",
+        ".asx",
+        ".wm",
+        ".wmx",
+        ".rm",
+        ".rmvb",
+        ".ra",
+        ".rmm",
+        ".webm"
+    ],
+    "Codes": [
+        ".c",
+        ".cpp",
+        ".h",
+        ".py",
+        ".java",
+        ".cs",
+        ".js",
+        ".rb",
+        ".pl",
+        ".php",
+        ".css",
+        ".less",
+        ".sass",
+        ".scss",
+        ".html",
+        ".htm",
+        ".xhtml"
+    ],
+    "Contacts": [
+        ".vcf",
+        ".ics",
+        ".ifb"
+    ],
+    "Others": [
+        ".torrent",
+        ".vpd"
     ]
 }
