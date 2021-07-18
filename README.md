@@ -3,12 +3,12 @@ Código criado com o intuito de ajudar pessoas a organizar suas pastas do comput
 ## O que é?
 <br>
 Um simples organizador de arquivos por extensão e grupo.
-<br> <br>
+<br>
 
 ## Uso
 <br>
 Abra o terminal como administrador e execute:
-<br> <br>
+<br>
 Para organizar a pasta atual:
 
 ```
