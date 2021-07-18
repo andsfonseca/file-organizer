@@ -1,12 +1,12 @@
 # File Organizer
 Código criado com o intuito de ajudar pessoas a organizar suas pastas do computador.
 ## O que é?
-<hr> <br>
+<br>
 Um simples organizador de arquivos por extensão e grupo.
 <br> <br>
 
 ## Uso
-<hr> <br>
+<br>
 Abra o terminal como administrador e execute:
 <br> <br>
 Para organizar a pasta atual:
