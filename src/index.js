@@ -8,8 +8,12 @@ const figlet = require("figlet")
 /**
  * Template Padrão da Aplicação
  */
-let defaultTemplate = require('./../default.json');
-const { exit } = require('process');
+const defaultTemplate = require('./../default.json');
+
+/**
+ * Informações do Projeto armazenadas no package.json
+ */
+const PROJECT_SETTINGS = require("./../package.json");
 
 /**
  * Lê os arquivos de uma pasta
@@ -18,7 +22,8 @@ const { exit } = require('process');
  */
 const readFolder = (path, callback) => {
     fs.readdir(path, (_err, files) => {
-        let onlyFiles = files.filter((file) => fs.statSync(path + '/' + file).isFile())
+        //Apenas arquivos e apenas arquivos com uma extensão
+        let onlyFiles = files.filter((file) => fs.statSync(path + '/' + file).isFile() && file.includes('.'))
         callback(onlyFiles)
     });
 }
@@ -67,6 +72,17 @@ const getExtension = (filename) => {
 }
 
 /**
+ * Realiza a função 'distinct', onde todos os elementos dentro dele são únicos
+ * @param {Array} array Array Original
+ * @returns Retorna um Array onde todos os elementos são únicos
+ */
+const distinct = (array) => {
+    return array.filter((value, index, self) => {
+        return self.indexOf(value) === index;
+    });
+}
+
+/**
  * Organiza uma pasta com o template informado
  * @param {String} path Caminho da Pasta
  * @param {String} template Template usado para Organização
@@ -97,13 +113,23 @@ const organizeFolder = (path, template) => {
         //Carrega o Template
         let organization = defaultTemplate;
 
-        if (template) {
-            loader.text = "Template loaded.";
-            organization = readJSON(template)
-        }
+        switch (template) {
+            case "default":
+                loader.text = "Default template loaded.";
+                break;
+            case "extension":
+                extensions = distinct(files.map(file => getExtension(file).toLowerCase()))
 
-        else {
-            loader.text = "Default template loaded.";
+                organization = {}
+                extensions.forEach(ext => {
+                    organization[ext] = [ext]
+                });
+                loader.text = "Extension template loaded.";
+                break;
+            default:
+                organization = readJSON(template)
+                loader.text = "Template loaded.";
+                break;
         }
 
         //Cria um dicionário "Extensão" -> Pasta
@@ -150,15 +176,15 @@ const organizeFolder = (path, template) => {
                 if (error) {
                     localLoader.text = "Unable to move file '" + file + "', access denied!"
                     localLoader.fail()
-                    
+
                 }
                 else {
                     localLoader.text = "File '" + file + "' moved successfully."
                     localLoader.succeed()
                 }
-                
+
                 if (count != size) {
-                    localLoader.text
+                    localLoader.text = "Moving..."
                     localLoader.start()
                 }
             })
@@ -170,17 +196,22 @@ const organizeFolder = (path, template) => {
 }
 
 const cli = () => {
-    commander.version('1.0.0')
+    let program = commander.version(PROJECT_SETTINGS.version)
         .name('file-organizer')
-        .description('A simple file organizer by extension and groups.')
+        .description(PROJECT_SETTINGS.description)
         .option('-p, --path [folder]', 'Directory of the path to be organized', '.')
-        .option('-t, --template [json]', 'Directory of the path to be organized')
+        .option('-t, --template [json]', 'Folder organization type: \'default\' uses application default, \'extension\' organizes files by extension and \'path\' loads a custom JSON for organization ', "default")
         .action((args) => {
             let path = args.path
             let template = args.template
             organizeFolder(path, template)
         })
-        .parse(process.argv)
+    
+    program.addHelpText('before', chalk.yellow(
+        figlet.textSync('File-organizer', { horizontalLayout: 'full' })
+    ));
+    
+    program.parse(process.argv)
 }
 
 cli();
